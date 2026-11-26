@@ -1,0 +1,6 @@
+CREATE TABLE systems (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR(50) NOT NULL UNIQUE,
+    necessity_rank INT NOT NULL UNIQUE
+        CONSTRAINT chk_rank_range CHECK (necessity_rank BETWEEN 1 AND 11)
+);
