@@ -5,6 +5,11 @@ spring:
     url: ${DB_URL:jdbc:postgresql://localhost:5433/baseweight}
     username: ${DB_USER:baseweight}
     password: ${DB_PASSWORD:porsche911}
+    # set HikariCP fail time to 5 seconds (down from 30s standard)
+    hikari:
+      connection-timeout: 5000 # 5s in ms
+      maximum-pool-size: 10
+      leak-detection-threshold: 15000
   jpa:
     hibernate:
       ddl-auto: validate
